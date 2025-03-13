@@ -19,12 +19,43 @@
             <ColumnDefinition />
             <ColumnDefinition />
         </Grid.ColumnDefinitions>
-        <TextBlock Grid.Row="0" Text="ListBox1" />
-        <ListBox Grid.Row="1" ItemsSource="{Binding Persons}" />
-        <TextBlock Grid.Row="2" Text="ComboBox1" />
+        
+        <TextBlock 
+            Grid.Row="0" 
+            Grid.Column="0"
+            Text="ListBox1" />
+        <ListBox 
+            Grid.Row="1" 
+            Grid.Column="0"
+            ItemsSource="{Binding Persons}" />
+        <TextBlock 
+            Grid.Row="2" 
+            Grid.Column="0"
+            Text="ComboBox1" />
         <ComboBox
             Grid.Row="3"
             VerticalAlignment="Top"
+            ItemsSource="{Binding Persons}" />
+        
+        <!--  DisplayMemberPath 추가  -->
+        <TextBlock
+            Grid.Row="0"
+            Grid.Column="1"
+            Text="ListBox1" />
+        <ListBox
+            Grid.Row="1"
+            Grid.Column="1"
+            DisplayMemberPath="Name"
+            ItemsSource="{Binding Persons}" />
+        <TextBlock
+            Grid.Row="2"
+            Grid.Column="1"
+            Text="ComboBox1" />
+        <ComboBox
+            Grid.Row="3"
+            Grid.Column="1"
+            VerticalAlignment="Top"
+            DisplayMemberPath="Name"
             ItemsSource="{Binding Persons}" />
     </Grid>
 </Window>
