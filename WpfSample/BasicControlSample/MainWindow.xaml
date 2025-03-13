@@ -41,7 +41,7 @@
         <TextBlock
             Grid.Row="0"
             Grid.Column="1"
-            Text="ListBox1" />
+            Text="ListBox2" />
         <ListBox
             Grid.Row="1"
             Grid.Column="1"
@@ -50,12 +50,80 @@
         <TextBlock
             Grid.Row="2"
             Grid.Column="1"
-            Text="ComboBox1" />
+            Text="ComboBox2" />
         <ComboBox
             Grid.Row="3"
             Grid.Column="1"
             VerticalAlignment="Top"
             DisplayMemberPath="Name"
             ItemsSource="{Binding Persons}" />
+
+        <!--  SelectedItem 추가  -->
+        <TextBlock
+            Grid.Row="0"
+            Grid.Column="2"
+            Text="ListBox3" />
+        <TextBlock
+            Grid.Row="0"
+            Grid.Column="2"
+            HorizontalAlignment="Right"
+            Text="{Binding SelectedListItem.Name}" />
+        <ListBox
+            Grid.Row="1"
+            Grid.Column="2"
+            DisplayMemberPath="Name"
+            ItemsSource="{Binding Persons}" 
+            SelectedItem="{Binding SelectedListItem, Mode=TwoWay}" />
+        <TextBlock
+            Grid.Row="2"
+            Grid.Column="2"
+            Text="ComboBox3" />
+        <TextBlock
+            Grid.Row="2"
+            Grid.Column="2"
+            HorizontalAlignment="Right"
+            Text="{Binding SelectedComboItem.Name}" />
+        <ComboBox
+            Grid.Row="3"
+            Grid.Column="2"
+            VerticalAlignment="Top"
+            DisplayMemberPath="Name"
+            ItemsSource="{Binding Persons}" 
+            SelectedItem="{Binding SelectedComboItem, Mode=TwoWay}" />
+
+        <!--  SelectedItem과 ViewModel 연동 -->
+        <TextBlock
+            Grid.Row="0"
+            Grid.Column="3"
+            Text="ListBox4" />
+        <Button
+            Grid.Row="0"
+            Grid.Column="3"
+            HorizontalAlignment="Right"
+            Command="{Binding DeleteListItemCommand}"
+            Content="Delete ListItem" />
+        <ListBox
+            Grid.Row="1"
+            Grid.Column="3"
+            DisplayMemberPath="Name"
+            ItemsSource="{Binding Persons}" 
+            SelectedItem="{Binding SelectedListItem2, Mode=TwoWay}" />
+        <TextBlock
+            Grid.Row="2"
+            Grid.Column="3"
+            Text="ComboBox4" />
+        <Button
+            Grid.Row="2"
+            Grid.Column="3"
+            HorizontalAlignment="Right"
+            Command="{Binding DeleteComboItemCommand}"
+            Content="Delete ComboItem" />
+        <ComboBox
+            Grid.Row="3"
+            Grid.Column="3"
+            VerticalAlignment="Top"
+            DisplayMemberPath="Name"
+            ItemsSource="{Binding Persons}" 
+            SelectedItem="{Binding SelectedComboItem2, Mode=TwoWay}" />
     </Grid>
 </Window>
