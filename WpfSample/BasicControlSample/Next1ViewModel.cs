@@ -3,7 +3,6 @@ using CommunityToolkit.Mvvm.Input;
 using System.Collections.ObjectModel;
 using System.Diagnostics;
 using System.Windows.Controls;
-using WpfTestApp;
 
 namespace BasicControlSample
 {

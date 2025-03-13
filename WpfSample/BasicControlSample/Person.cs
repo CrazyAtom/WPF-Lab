@@ -1,6 +1,6 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 
-namespace WpfTestApp
+namespace BasicControlSample
 {
     public class Person : ObservableObject
     {

@@ -2,7 +2,6 @@
 using CommunityToolkit.Mvvm.Input;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
-using WpfTestApp;
 
 namespace BasicControlSample
 {
