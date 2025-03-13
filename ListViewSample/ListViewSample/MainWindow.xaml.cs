@@ -14,10 +14,10 @@ public partial class MainWindow : Window
 
         _list = new List<Animal>
         {
-            new Animal { IsChecked=true, Name="Cat", Type="animal", ImagePath=@"Images\cat.png"},
-            new Animal { IsChecked=false, Name="Dog", Type="animal", ImagePath=@"Images\dog.png"},
-            new Animal { IsChecked=true, Name="Fish", Type="fish", ImagePath=@"Images\fish.png"},
-            new Animal { IsChecked=false, Name="Flower", Type="plant", ImagePath=@"Images\flower.png"},
+            new Animal { IsChecked=true, Name="Cat", Type="animal", ImagePath="/Images/cat.png"},
+            new Animal { IsChecked=false, Name="Dog", Type="animal", ImagePath="/Images/dog.png"},
+            new Animal { IsChecked=true, Name="Fish", Type="fish", ImagePath="/Images/fish.png"},
+            new Animal { IsChecked=false, Name="Flower", Type="plant", ImagePath="/Images/flower.png"},
         };
     }
 
