@@ -11,19 +11,31 @@ namespace BasicControlSample
     {
         private ObservableCollection<Person> _persons = new ObservableCollection<Person>
         {
-                new Person{ Name = "person0101", Sex = true, Age = 11, Address = "Seoul1" },
-                new Person{ Name = "person0102", Sex = false, Age = 12, Address = "Seoul2" },
-                new Person{ Name = "person0103", Sex = true, Age = 13, Address = "Seoul3" },
-                new Person{ Name = "person0104", Sex = false, Age = 14, Address = "Seoul4" },
-                new Person{ Name = "person0105", Sex = true, Age = 15, Address = "Seoul5" },
-                new Person{ Name = "person0106", Sex = false, Age = 16, Address = "Seoul6" },
-                new Person{ Name = "person0107", Sex = true, Age = 17, Address = "Seoul7" },
-                new Person{ Name = "person0108", Sex = false, Age = 18, Address = "Seoul8" },
-                new Person{ Name = "person0109", Sex = true, Age = 19, Address = "Seoul9" },
-                new Person{ Name = "person0110", Sex = false, Age = 20, Address = "Seoul10" },
+                new Person{ Name = "person0101", Sex = true, Age = 11, Address = "06090" },
+                new Person{ Name = "person0102", Sex = false, Age = 12, Address = "06090" },
+                new Person{ Name = "person0103", Sex = true, Age = 13, Address = "06090" },
+                new Person{ Name = "person0104", Sex = false, Age = 14, Address = "06090" },
+                new Person{ Name = "person0105", Sex = true, Age = 15, Address = "06090" },
+                new Person{ Name = "person0106", Sex = false, Age = 16, Address = "06090" },
+                new Person{ Name = "person0107", Sex = true, Age = 17, Address = "02043" },
+                new Person{ Name = "person0108", Sex = false, Age = 18, Address = "02043" },
+                new Person{ Name = "person0109", Sex = true, Age = 19, Address = "02043" },
+                new Person{ Name = "person0110", Sex = false, Age = 20, Address = "02043" },
         };
 
         public ObservableCollection<Person> Persons { get { return _persons; } }
+
+        public ObservableCollection<CodeModel> Sexs { get; set; } =
+        [
+            new CodeModel { Name = "Male", Value = true, Code = "male" },
+            new CodeModel { Name = "Female", Value = false, Code = "female"}
+        ];
+
+        public ObservableCollection<CodeModel> Addressies { get; set; } =
+        [
+            new CodeModel { Name = "서울 강남구", Code = "06090" },
+            new CodeModel { Name = "서울 중량구", Code = "02043" },
+        ];
 
         private Person _selectedListItem;
         public Person SelectedListItem
