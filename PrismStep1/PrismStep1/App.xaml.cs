@@ -1,8 +1,6 @@
 ﻿using Prism.Ioc;
 using PrismStep1.Views;
-using System;
 using System.Diagnostics;
-using System.Reflection;
 using System.Windows;
 
 namespace PrismStep1
@@ -35,29 +33,29 @@ namespace PrismStep1
         /// <summary>
         /// 뷰모델 로케이터 이름 설정
         /// </summary>
-        protected override void ConfigureViewModelLocator()
-        {
-            base.ConfigureViewModelLocator();
+        //protected override void ConfigureViewModelLocator()
+        //{
+        //    base.ConfigureViewModelLocator();
 
-            Prism.Mvvm.ViewModelLocationProvider.SetDefaultViewTypeToViewModelTypeResolver((viewType) =>
-            {
-                string viewName = viewType.Name;
-                if (viewName == null)
-                {
-                    return null;
-                }
+        //    Prism.Mvvm.ViewModelLocationProvider.SetDefaultViewTypeToViewModelTypeResolver((viewType) =>
+        //    {
+        //        string viewName = viewType.Name;
+        //        if (viewName == null)
+        //        {
+        //            return null;
+        //        }
 
-                if (viewName.EndsWith("View"))
-                {
-                    viewName = viewName.Substring(0, viewName.Length - 4);
-                }
+        //        if (viewName.EndsWith("View"))
+        //        {
+        //            viewName = viewName.Substring(0, viewName.Length - 4);
+        //        }
 
-                viewName = viewName.Replace(".Views.", ".ViewModels.");
-                viewName = viewName.Replace(".Controls.", ".ControlViewModels.");
-                string viewAssemblyName = viewType.GetTypeInfo().Assembly.FullName;
-                string viewModelName = $"{viewName}ViewModel, {viewAssemblyName}";
-                return Type.GetType(viewModelName);
-            });
-        }
+        //        viewName = viewName.Replace(".Views.", ".ViewModels.");
+        //        //viewName = viewName.Replace(".Controls.", ".ControlViewModels.");
+        //        string viewAssemblyName = viewType.GetTypeInfo().Assembly.FullName;
+        //        string viewModelName = $"{viewName}ViewModel, {viewAssemblyName}";
+        //        return Type.GetType(viewModelName);
+        //    });
+        //}
     }
 }

@@ -5,6 +5,23 @@
         prism:ViewModelLocator.AutoWireViewModel="True"
         Title="{Binding Title}" Height="350" Width="525" >
     <Grid>
-        <ContentControl prism:RegionManager.RegionName="ContentRegion" />
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <StackPanel Orientation="Horizontal">
+            <ComboBox 
+                x:Name="NavigationNameComboBox"
+                Width="100"
+                Margin="5"
+                ItemsSource="{Binding NavigationNames}" />
+            <Button 
+                Margin="5"
+                Command="{Binding NavigateCommand}"
+                CommandParameter="{Binding ElementName=NavigationNameComboBox, Path=SelectedItem}"
+                Content="Resion Navigate" />
+        </StackPanel>
+        <ContentControl Grid.Row="1"
+                        prism:RegionManager.RegionName="ContentRegion" />
     </Grid>
 </Window>
