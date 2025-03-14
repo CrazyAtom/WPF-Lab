@@ -14,11 +14,11 @@
                 x:Name="NavigationNameComboBox"
                 Width="100"
                 Margin="5"
-                ItemsSource="{Binding NavigationNames}" />
+                ItemsSource="{Binding NavigationNames}" 
+                SelectedItem="{Binding SelectedNavigationName, Mode=TwoWay}" />
             <Button 
                 Margin="5"
                 Command="{Binding NavigateCommand}"
-                CommandParameter="{Binding ElementName=NavigationNameComboBox, Path=SelectedItem}"
                 Content="Resion Navigate" />
         </StackPanel>
         <ContentControl Grid.Row="1"

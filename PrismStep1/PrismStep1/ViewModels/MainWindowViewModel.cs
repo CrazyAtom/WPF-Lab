@@ -32,6 +32,16 @@ namespace PrismStep1.ViewModels
             set { SetProperty(ref _title, value); }
         }
 
+        /// <summary>
+        /// 선택된 네이게이션 할 뷰 이름
+        /// </summary>
+        private string _selectedNavigationName;
+        public string SelectedNavigationName
+        {
+            get { return _selectedNavigationName; }
+            set { SetProperty(ref _selectedNavigationName, value); }
+        }
+
         public ICommand NavigateCommand { get; set; }
 
         public MainWindowViewModel()
@@ -43,7 +53,8 @@ namespace PrismStep1.ViewModels
             // 프리즘에서 사용하고 있는 IoC Container를 생성자 주입 후 로컬 변수로 등록하고 사용합니다.
             _containerProvider = containerProvider;
             // NavigateCommand 생성 - 꼭 생성자에서 만들 필요는 없지만 클래스가 만들어진 후 빠르게 생성하는 것이 좋습니다.
-            NavigateCommand = new DelegateCommand<string>(OnNavigate, CanNavigate);
+            NavigateCommand = new DelegateCommand(OnNavigate, CanNavigate)
+                .ObservesProperty(() => SelectedNavigationName);
             // 네이게이션 할 View 이름들
             NavigationNames = new List<string>
             {
@@ -52,14 +63,14 @@ namespace PrismStep1.ViewModels
             };
         }
 
-        private void OnNavigate(string obj)
+        private void OnNavigate()
         {
-            Debug.WriteLine($"OnNavigate : {obj}");
+            Debug.WriteLine($"OnNavigate : {SelectedNavigationName}");
         }
 
-        private bool CanNavigate(string arg)
+        private bool CanNavigate()
         {
-            return true;
+            return string.IsNullOrEmpty(SelectedNavigationName) == false;
         }
     }
 }
