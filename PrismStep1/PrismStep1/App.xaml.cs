@@ -1,4 +1,5 @@
 ﻿using Prism.Ioc;
+using PrismStep1.Models;
 using PrismStep1.Views;
 using System.Diagnostics;
 using System.Windows;
@@ -28,6 +29,10 @@ namespace PrismStep1
         protected override void RegisterTypes(IContainerRegistry containerRegistry)
         {
             containerRegistry.RegisterSingleton<MainWindow>();
+            //containerRegistry.RegisterSingleton<Person>();
+            var person = new Person { Id = 1, Name = "person1" };
+            containerRegistry.RegisterInstance(person, "p1");
+            containerRegistry.RegisterInstance(person, "p2");
         }
 
         /// <summary>

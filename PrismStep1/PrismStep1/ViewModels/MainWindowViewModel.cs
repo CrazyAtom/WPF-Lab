@@ -1,8 +1,10 @@
 ﻿using Prism.Commands;
 using Prism.Ioc;
 using Prism.Mvvm;
+using PrismStep1.Models;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Windows;
 using System.Windows.Input;
 
 namespace PrismStep1.ViewModels
@@ -44,6 +46,10 @@ namespace PrismStep1.ViewModels
 
         public ICommand NavigateCommand { get; set; }
 
+        public ICommand CreatePersonCommand { get; set; }
+
+        public ICommand CreatePerson2Command { get; set; }
+
         public MainWindowViewModel()
         {
 
@@ -61,8 +67,11 @@ namespace PrismStep1.ViewModels
                 "Sample1View",
                 "Sample2View"
             };
-        }
 
+            CreatePersonCommand = new DelegateCommand(OnCreatePerson);
+
+            CreatePerson2Command = new DelegateCommand(OnCreatePerson2);
+        }
         private void OnNavigate()
         {
             Debug.WriteLine($"OnNavigate : {SelectedNavigationName}");
@@ -71,6 +80,37 @@ namespace PrismStep1.ViewModels
         private bool CanNavigate()
         {
             return string.IsNullOrEmpty(SelectedNavigationName) == false;
+        }
+
+        private void OnCreatePerson()
+        {
+            var person1 = _containerProvider.Resolve<Person>();
+            var person2 = _containerProvider.Resolve<Person>();
+            ShowMessage(person1, person2, "Create Person");
+        }
+
+        private void OnCreatePerson2()
+        {
+            var person1 = _containerProvider.Resolve<Person>("p1");
+            var person2 = _containerProvider.Resolve<Person>("p2");
+            ShowMessage(person1, person2, "Create Person2");
+        }
+
+        private void ShowMessage(object one, object two, string title = "")
+        {
+            if (one == null || two == null)
+            {
+                MessageBox.Show("Both objects must be not null", title);
+                return;
+            }
+            if (one.Equals(two))
+            {
+                MessageBox.Show("It's the same instance", title);
+            }
+            else
+            {
+                MessageBox.Show("They are different instance", title);
+            }
         }
     }
 }

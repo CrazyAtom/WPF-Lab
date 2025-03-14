@@ -20,6 +20,14 @@
                 Margin="5"
                 Command="{Binding NavigateCommand}"
                 Content="Resion Navigate" />
+            <Button
+                Margin="5"
+                Command="{Binding CreatePersonCommand}"
+                Content="Create Person" />
+            <Button
+                Margin="5"
+                Command="{Binding CreatePerson2Command}"
+                Content="Create Person2" />
         </StackPanel>
         <ContentControl Grid.Row="1"
                         prism:RegionManager.RegionName="ContentRegion" />
